@@ -1,6 +1,6 @@
-namespace Day1;
+namespace DayThree;
 
-public class UnitTest1
+public class DayThreeTest
 {
     private int getPriorityScore(char str) => Char.IsUpper(str) ? str - 38 : str - 96;
 

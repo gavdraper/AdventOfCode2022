@@ -1,27 +1,11 @@
-namespace Day1;
+namespace DayTwo;
 
-public class UnitTest1
+public partial class DayTwoTest
 {
 
     List<Item> Items = new List<Item>();
 
-    public class Item
-    {
-        public List<char> Mappings { get; set; }
-        public string Name { get; set; }
-        public int Score { get; set; }
-        public string Beats { get; set; }
-
-        public Item(List<char> mappings, string name, int score, string beats)
-        {
-            Mappings = mappings;
-            Name = name;
-            Score = score;
-            Beats = beats;
-        }
-    }
-
-    public UnitTest1()
+    public DayTwoTest()
     {
         Items.Add(new Item(new List<char> { 'A', 'X' }, "Rock", 1, "Scissors"));
         Items.Add(new Item(new List<char> { 'B', 'Y' }, "Paper", 2, "Rock"));
@@ -51,26 +35,12 @@ public class UnitTest1
                 player2 = Items.Single(x => x.Beats == player1.Name);
 
             roundScore += player2.Score;
-            string status = "";
             if (player1.Name == player2.Name)
-            {
-                status = "Draw";
                 score += 3;
-            }
-            else
-            if (player2.Beats == player1.Name)
-            {
+            else if (player2.Beats == player1.Name)
                 roundScore += 6;
-                status = "Win";
-            }
-            else status = "Lost";
-
-
-            Console.WriteLine($"{player1.Name} {player2.Name} {status}  {roundScore}");
             score += roundScore;
         }
-
-        Console.WriteLine(score);
-
+        Assert.Equal(14060, score);
     }
 }

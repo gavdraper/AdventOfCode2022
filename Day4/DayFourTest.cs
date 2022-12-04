@@ -1,6 +1,6 @@
-namespace Day1;
+namespace DayFour;
 
-public class UnitTest1
+public class DayFourTest
 {
     [Fact]
     public void Test1()
