@@ -1,4 +1,4 @@
-namespace DayEight;
+namespace DayNine;
 
 public class Vector2D
 {
@@ -30,8 +30,11 @@ public class Vector2D
 
     public void MoveToward(Vector2D other)
     {
-        this.X = getCloser(X, other.X);
-        this.Y = getCloser(Y, other.Y);
+        if (!this.Touches(other))
+        {
+            this.X = getCloser(X, other.X);
+            this.Y = getCloser(Y, other.Y);
+        }
     }
 
     public Vector2D Move(Vector2D velocity)
